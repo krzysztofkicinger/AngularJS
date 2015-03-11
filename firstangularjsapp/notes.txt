@@ -1,0 +1,58 @@
+How to modify static HTML page to use AngularJS?
+1. Add script element that points angular.js
+2. Create an angular module.
+3. Add ng-app to html or body HTML tag
+
+Create an angular module - use angular.module(...) method:
+angular.module([ModuleName], [ArrayOfDependentModules])
+
+Example:
+var todoApp = angular.module("todoApp", []);
+
+ng-app attribute:
+Specifies that the element contains a module that should be compiled nad processed by
+AngularJS
+
+AngularJS supports MVC - requires to break the application into three distinct areas
+    - data of app (model)
+    - logic that operates on data (controller)
+    - logic that displays data (view)
+
+Tasks:
+1. Separate the data from HTML elements -> CREATE MODEL -> JSON Notation
+2. Create Controllers:
+    - use angularModule.controller(...) method
+    - Convention: <name>Ctrl / <name>Controller
+
+    - Controller tasks:
+        - provide the data views require - you don't always want views to have access
+          to the complete model, so you use the controller to explicitly select those
+          portions of data that are going to be available - SCOPE ($scope)
+    - $scope (argument):
+        - $ refers to build-in service, which is SELF-CONTAINED component that
+          provides features to multiple controllers
+        - @scope is special and is used to expose data and functionality to views
+    - You need to specify the region in HTML that controller is responsible for
+        - HTML Attribute - ng-controller="<nameController>"
+        - Example: ng-controller="todoCtrl"
+3. Views:
+    - DATA BINDING - {{<modelElement>}}
+    - Example: {{todo.user}}
+    - Context of data binding is evaluated as JS expression
+    - You can access elements that are assigned to $scope.<objectName>
+
+    - ng-repeat - generate the for-each loop for each object in the collection
+    - Format: <name> in <collection/array>
+
+4. Two-Way Model Binding:
+    - Two-way binding - where model is used to generate elements and changes in the element cause
+      corresponding changes in the model
+    - ng-model ATTRIBUTE - creates two way biding between the value of HTML element and model value
+        - Counterpart of JSF value attribute
+    - Two-Way binding can be applied to elements that takes user output (elements associated with HTML form elements)
+
+5. Controller behaviors:
+    - Controllers define behaviors on the scope (functions that operates on the data in the model)
+    - Behaviors are defined by adding functions to the $scope
+    - Useful with directives: ng-hide - hides the element (+ subelements) if the expression that is assigned as the
+      attribute value evaluates to true (manipulates DOM automatically based on the AngularJS model)
