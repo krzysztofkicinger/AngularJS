@@ -26,7 +26,7 @@ serve-static module is required if you are going to use connect module from 3.X.
 
 ##### AngularJS and Twitter Bootstrap
 
-AngularJS 1.3.14 and Twitter Bootstrap 3.3.2 are delivered within the project. If you want to change version of used libraries please download releases from:
+AngularJS 1.3.14 and Twitter Bootstrap 3.3.2 are delivered with the project distribution. If you want to change version of used libraries please download releases from:
 
 ```http
 https://angularjs.org/
