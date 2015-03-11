@@ -21,7 +21,7 @@ npm install serve-static
 npm install http
 ```
 
-Node:
+''Note'':
 serve-static module is required if you are going to use connect module from 3.X.X version (if version 2.X.X is used, serve-static module is not required)
 
 ##### AngularJS and Twitter Bootstrap
