@@ -56,3 +56,51 @@ Tasks:
     - Behaviors are defined by adding functions to the $scope
     - Useful with directives: ng-hide - hides the element (+ subelements) if the expression that is assigned as the
       attribute value evaluates to true (manipulates DOM automatically based on the AngularJS model)
+
+6. How to create behavior that depends of other behaviors?
+    - Create function in $scope and invoke other function from $scope
+    - Return:  return $scope.incompleteCount() < 3 ? "label-default" : "label-warning";
+
+7. Dynamic element classes:
+    - ng-class ATTRIBUTE
+    - Example: ng-class="warningLevel()"
+
+8. Addition of new elements in list:
+    - Combining elements with model (review): ng-model="actionText"
+    - ng-model ATTRIBUTE - dynamically creates the property within the scope of the controller, creates dynamic model
+      properties that are used to handle user input
+    - Invoking action from view: ng-click="addNewItem(actionText)
+    - Function (actionText - is taken from ng-model):
+            $scope.addNewItem = function(actionText) {
+                $scope.todo.items.push( { action : actionText, done : false });
+            }
+
+9. Filters - prepare data in the model for display in views without having to create behaviors
+    - filers to control data can be applied to any part of data model
+    - Example: ng-repeat="item in todo.items | filter : { done : false } | orderBy : 'action'"
+    - You can use two types of filters:
+        - filter - selects object with a criteria it is configured with
+        - orderBy
+    - Advanced filters:
+        - Function: angular.filter(items, showComplete) - creates Filter Factory, which returns a Function that is used to filter
+          a set of data objects
+        - The first [array] argument will be provided by angular (set of object that should be filtered)
+        - showComplete - used to determine whether tasks that have been marked as done will be included in the
+          filtered data
+        - checkedItems:showComplete - can be used as filter (CUSTOM FILTER)
+            - <filterName>:<nameOfModelProperty> :
+                - <nameOfModelProperty> - property that is going to be passed to the filter action (in example
+                  showComplete model property means that the state of the checkbox will be used to control the
+                  visibility of the checked items)
+
+10. Getting the Data via Ajax:
+    - JSON data via an Ajax request
+    - angular.run(function($http) { ... } ) - run method takes a function that is executed once AngularJS has performed
+      its initial setup and is used for one-off tasks
+    - $http - tells angular to use the service object that provides support for making Ajax calls - using arguments to
+      tell AngularJS what features you require is part of approach known Dependency Injection
+        - service provides low-level Ajax requests
+        - $resources - used for RESTful web services
+        - Function: $http.get(...) - result is a PROMISE, work that will be complete in the future
+            - <promiseObject>.success(function(data) { ... } ); - lets specify a function that will be invoked
+              when the Ajax request to the server has completed and that the JSON data is retrieved

@@ -1,0 +1,33 @@
+1. Anatomy of HTML Element:
+    - Element - tells the browser what kind of content each part of an HTML document represents
+    - Element name = Tag name
+    - Element attributes - always defined as part of the start tag and have a NAME and VALUE
+        - not all attributes require a value
+    - Element content - tree structures
+        - Void element (self-closing element) - does not contain any content
+            - Example: <input .... />
+
+2. Bootstrap:
+    - Applying classes - use class attribute, used to associate related elements
+    - Basic Bootstrap classes:
+        - panel - denotes a panel with a rounded border, can have header and a footer
+        - panel-heading - creates a heading for a panel
+        - btn - creates button
+        - well - groups elements with an inset effect
+    - Modifying style context:
+        - Style context classes - classes that are applied to elements to signify their purpose
+        - Example: class="btn btn-primary"
+    - Modifying size:
+        - class name with -lg or -sg
+        - Example: btn-lg
+    - (for buttons) Button block: btn-block
+    - Tables:
+        - table - general styling to table elements and their contents
+        - table-striped - alternative row-striping to the rows in the table body
+        - table-bordered - applies borders to all rows and columns
+        - table-hover - displays a different style when mouse hovers over a row in the table
+        - table-condensed - reduces spacing in the table to create more compact layout
+
+3. Bootstrap forms:
+    - <div class="form-group"> - basic styling for forms
+        - comprises of <label> and <input ... /> element

@@ -1,0 +1,45 @@
+1. Understanding where AngularJS Excels:
+    - AngularJS delivers the kind of functionality that used to be available only to server-side developers, but
+      entirely in the browser
+    - whole work is done during HTML page rendering
+    - Problem: complexity of HTML page + quality of browser -> performance
+    - Solution: setup as infrequently as possible and deliver as much of the app as possible to the user when it is
+      performed
+
+2. Round-trip && Single-Page Applications
+    - Round-trip - browser requests an initial HTML document from the server, user interactions led the browser to
+      request and receive complete new HTML document (browser == rendering engine of stateless HTTP requests)
+        - user must wait for the next page being requested and loaded
+        - requires a large server-side infrastructure
+        - require a lot of bandwidth
+    - Single-page Application - initial HTML is sent to browser, but user interactions lead to Ajax requests
+        - initial page is never reloaded or replaced + Ajax requests are performed asynchronously
+    - AngularJS - combines both approaches
+
+3. jQuery vs AngularJS:
+    - jQuery - explicit manipulation of DOM
+    - AngularJS - browser is being the foundation for application development
+
+4. AngularJS implementation of MVC Pattern
+
+5. Understanding models:
+    - View models - represents data passed from the controller to the view, not persistent and is created either by
+      synthesizing some aspect of the domain model data or in response to user interaction
+        - Example: ng-model ATTRIBUTE
+    - Domain models - contain the data in a business domain along with the operations
+    - AngularJS effectively pushes the logic to the server side and invoke it via a RESTful web service
+    - Client-side persistence (part of HTML5 standard effort)
+
+6. Understanding Controllers:
+    - Controllers in AngularJS web app - connection between data model and views, add business domain logic (knows
+      as behaviors) to scopes, which are subsets of the model
+
+7. Should [not] do Model/Controller/View
+
+8. Understanding RESTful services:
+    - AngularJS app is often split between the client and the server:
+        - server - contains the persistent store + contains the login for managing it
+        - client - we don't want to enable client to access the data store - TIGHT COUPLING
+    - Passing data between the client and the server:
+        - Ajax Requests - calls server-side code
+        - RESTful services - CRUD operations
