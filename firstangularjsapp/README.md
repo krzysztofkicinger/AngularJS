@@ -4,32 +4,33 @@
 
 ##### Add angular.js sources:
 
-    ```html
-    <script src="../angular-1.3.14/angular.js"></script>
-    ```
+```html
+<script src="../angular-1.3.14/angular.js"></script>
+```
 
 ##### Create AngularJS module and add ng-app to <html> or <body> element:
 
 **angular.module(...)** function is passed 2 or more arguments
 
-    ```html
-    angular.module(name, [requires], [configFn]);
-    ```
+```html
+angular.module(name, [requires], [configFn]);
+```
+
  * **name** (String) - name of the module to create or retrieve
  * **requires** (optional, Array[String]) - If specified then new module being created, if unspecified new module is being retrieved for further configuration
  * **configFn** (optional, Function) - optional configuration function
 
-    ```html
-    <script>
-        var appModuleVar = angular.module("appModuleVar", []);
-    </script>
-    ```
+```html
+<script>
+    var appModuleVar = angular.module("appModuleVar", []);
+</script>
+```
 
 **ng-app** attribute places within HTML element, tells browser that particular HTML tag contains elements (children) that should be compiled before usage and processed by AngularJS
 
-    ```html
-    <html ng-app="appModuleVar">
-    ```
+```html
+<html ng-app="appModuleVar">
+```
 
 #### MVC Introduction
  * Breaks application into 3 separate areas: model, view, controller
