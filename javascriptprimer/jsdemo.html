@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <script src="../angular-1.3.14/angular.js"></script>
+    <script type="text/javascript">
+        console.log("This is a statement");
+        console.log("This is also a statement.")
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        function myFunc(name, weather) {
+            console.log("myFunc() parameters [ name = " + name + ", weather = " + weather + " ]");
+            return "Hello " + name + ". It is " + weather + " today.";
+        }
+        console.log(myFunc("Adam", "sunny"));
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        function printMessage(unknownObject) {
+            if(angular.isFunction(unknownObject)) {
+                unknownObject();
+            } else {
+                console.log(unknownObject);
+            }
+        }
+        var var1 = function sayHello() {
+            console.log("Hello!");
+        }
+        var var2 = "Goodbye!";
+        printMessage(var1);
+        printMessage(var2);
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myGlobalVar = "apples";
+
+        function myVarTestFunc(name) {
+            var myLocalVar = "sunny";
+            return "Hello " + name + ". Today is " + myLocalVar + ".";
+        }
+        console.log("myVarTestFunc(): " + myVarTestFunc("Adam"));
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        console.log(angular.isString("Hello") + " " + angular.isArray(23));
+        console.log("I am " + angular.uppercase("shouting"));
+        console.log("I am " + angular.lowercase("WhiSpeRing"));
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myData = new Object();
+        myData.name = "Adam";
+        myData.weather = "sunny";
+
+        console.log("Hello " + myData.name + ".");
+        console.log("Today is " + myData.weather + ".");
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myLiteralObjectData = {
+            name : "Adam",
+            weather : "sunny",
+            printMessages : function() {
+                console.log("Hello from method " + this.name + ".");
+                console.log("Today is " + this.weather + ".");
+            }
+        }
+
+        console.log("Hello " + myLiteralObjectData.name + ".");
+        console.log("Today is " + myLiteralObjectData.weather + ".");
+
+        myLiteralObjectData.printMessages();
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myExtendedObject = {
+            city : "London"
+        }
+
+        angular.extend(myExtendedObject, myLiteralObjectData);
+
+        console.log("Extension: " + myExtendedObject.name);
+        console.log("Extension: " + myExtendedObject.city);
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var mySimpleData = {
+            name : "Adam",
+            weather : "sunny"
+        }
+
+        mySimpleData.name = "Joe";
+        mySimpleData["weather"] = "raining";
+
+        console.log("Hello " + mySimpleData.name + ".");
+        console.log("Today is " + mySimpleData.weather + ".");
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        for(var prop in myExtendedObject) {
+            console.log("myExtendedObject." + prop + " = " + myExtendedObject[prop]);
+        }
+
+        angular.forEach(myExtendedObject, function(value, key) {
+            console.log("Angular forEach Style: myExtendedObject." + key + " = " + value);
+        });
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myDeletionData = {
+            name : "Adam",
+            weather : "sunny"
+        }
+
+        delete myDeletionData.name;
+        delete myDeletionData.weather;
+        delete myDeletionData.SayHello;
+
+        console.log("Hello " + myDeletionData.name + "."); // undefined
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        var myHasTestData = {
+            name : "Adam",
+            weather : "sunny"
+        }
+
+        var hasName = "name" in myHasTestData;
+        var hasDate = "date" in myHasTestData;
+
+        console.log("HasName: " + hasName);
+        console.log("HasDate: " + hasDate);
+    </script>
+    <script type="text/javascript">
+        console.log("Global var from different <script>: " + myGlobalVar);
+    </script>
+</head>
+<body>
+    This is a simple example.
+</body>
+</html>

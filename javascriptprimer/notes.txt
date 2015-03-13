@@ -1,0 +1,83 @@
+1. Understanding <script> element:
+    - Tells how JavaScript code is added to an HTML page:
+        - <script src="..."></script> - imports separate file
+        - <script type="text/javascript">...</script> - inline scripts
+
+2. JavaScript Statements:
+    - Statement - building block, each statement = single command
+    - usually terminated by ; (but not required)
+    - console.log(...) - counterpart of Java's System.out.println(...)
+
+3. Defining and using functions:
+    - when browser presents processes HTML documents, it looks at the elements one by one
+    - <scripts> are immediately executed
+    - Defining a function:
+        function functionName([argumentList]) { ... }
+    - JavaScript - DYNAMICALLY TYPED
+        => variable type can change during program execution
+        => you can assign different types to the same variable
+        => you don't have to declare the data type of the parameters
+    - JavaScript function arguments must not be provided
+        - if not provided it will be of undefined - special JS type and value at once
+        - if you call function with more parameters - additional once are ignored
+        - Consequences - NO OVERLOADED METHODS!!! - You cannot create a function with the same name but with different
+          argument list (if you define a method with the same name, the second definition will replace the first one)
+
+4. Functions as objects:
+    - Functions can be passed around as object within JS
+    - Angular can test whether object is a function:
+        - angular.isFunction(object)
+
+5. Using Variables and Types:
+    - var keyword
+    - Local Variables - variables declared within function
+    - Global variables - outside the function scope (file, <script> element), can be accessed anywhere, including other
+      scripts in the same HTML document
+
+6. Using Primitive Types:
+    - Boolean, String, Numbers
+    - Angular methods for working with Stirngs:
+        - angular.isString(object)
+        - angular.lowercase(string)
+        - angular.uppercase(string)
+    - Angular method for working with Numbers:
+        - angular.isNumber(object)
+
+7. Creating Objects:
+    - Creating new object -> new Object()
+    - You can define properties on the object dynamically!:
+        myObject.name - adds new property name to myObject
+    - Object Literals (similar to JSON):
+        var myObject = {
+            name : "Adam",
+            weather : "sunny"
+        }
+    - Functions as Methods:
+        var myObject = {
+            ...,
+            printMessage : function() { ... }
+        }
+    - this keyword - current object reference (implicitly passed as function parameter - the same as in Java)
+
+8. ANGULARJS - Extending objects:
+    - Extending == copying methods and properties from one object to another
+    - Method: angular.extend(subclassObject, superclassObject)
+        - preservers any properties and methods on the target object
+    - Method: angular.copy(...):
+        - creates a copy of an object without preservation
+
+9. Working with objects:
+    - Detecting object: angular.isObject(object)
+    - Reading and modifying the Property Values:
+        - myObject.property
+        - Array-style index: myObject["property"]
+    - ENUMERATING OBJECT PROPERTIES:
+        - for ... in - JS STATEMENT
+            - You have to access prop variable using array-index style
+        - Method: angular.forEach(object, function(propertyValue, propertyName) { ... }
+            - straightforward value and property name (no array-index style access required)
+    - Deleting properties from object:
+        - delete keyword
+    - DETERMINING WHETHER OBJECT HAS PROPERTY
+        - in expression:
+            - Example: "propertyName" in object
